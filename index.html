@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Federico Rodríguez Márquez, marca personal audiovisual</title>
+<meta name="description" content="Portafolio Profesional UCAB. Federico Rodríguez Márquez: realizador audiovisual y diseñador de identidad sonora.">
+<meta name="theme-color" content="#1F3FC4">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&display=swap" rel="stylesheet">
+<style>
+  /* Mismo mundo que musicari0.vercel.app: el catálogo de discos.
+     Lado A = el sonido, Lado B = la imagen. Escala de diseño: 2000 px de ancho (1vw = 20 px). */
+  :root {
+    --white: #FFFFFF; --black: #111111; --grey: #5C5C5C; --line: #D9D9D9; --ink2: #CFCFCF;
+    --cobalt: #1F3FC4; --orange: #E8551C; --amber: #D99020; --yellow: #F2C230;
+    --f: "Archivo", "Arial Narrow", Helvetica, sans-serif;
+    --pad: clamp(20px, 4vw, 80px);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scrollbar-color: var(--black) var(--white); }
+  body { background: var(--white); color: var(--black); font-family: var(--f); font-size: clamp(16px, 1.05vw, 21px); line-height: 1.5; font-variation-settings: "wdth" 100; -webkit-font-smoothing: antialiased; overflow-x: hidden; caret-color: var(--cobalt); }
+  .page { max-width: 2000px; margin: 0 auto; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  ::selection { background: var(--black); color: var(--white); }
+  :focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+
+  .x { font-weight: 900; text-transform: uppercase; line-height: 0.84; letter-spacing: -0.01em; }
+  .cond { font-variation-settings: "wdth" 62; }
+  .wide { font-variation-settings: "wdth" 125; }
+  .light { font-weight: 300; }
+  .tag { font-weight: 700; font-variation-settings: "wdth" 70; text-transform: uppercase; letter-spacing: 0.04em; font-size: clamp(13px, 0.8vw, 17px); }
+  .tag span { font-weight: 300; }
+  .rule { border-top: 3px solid currentColor; }
+  .bw { filter: grayscale(1) contrast(1.08); }
+
+  /* Cabezal de cada sección: número de catálogo + título enorme */
+  .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 48px; flex-wrap: wrap; padding: clamp(64px, 8vw, 170px) var(--pad) clamp(28px, 2.6vw, 52px); }
+  .head h2 { font-size: clamp(60px, 9vw, 190px); }
+  .head p { max-width: 34ch; font-size: clamp(17px, 1.15vw, 23px); font-variation-settings: "wdth" 88; padding-bottom: 0.5em; }
+
+  /* ---------- 1. Portada / Hero ---------- */
+  .hero { background: var(--cobalt); color: var(--white); padding: clamp(20px, 1.6vw, 32px) var(--pad) var(--pad); display: grid; gap: clamp(28px, 2.4vw, 48px); position: relative; overflow: hidden; min-height: min(70.5vw, 1410px); align-content: space-between; }
+  .hero-top { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .hero-top .name { font-weight: 800; font-variation-settings: "wdth" 70; text-transform: uppercase; font-size: clamp(16px, 1vw, 20px); }
+  .hero-grid > *, .hero-foot > * { min-width: 0; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: clamp(28px, 3vw, 64px); align-items: end; }
+  .hero h1 { font-size: clamp(54px, 8.6vw, 176px); }
+  .hero h1 span { display: block; }
+  .hero h1 .l2 { color: var(--black); }
+  .hero h1 .l3 { margin-top: 0.12em; }
+  .portrait { position: relative; aspect-ratio: 4 / 5; isolation: isolate; }
+  .portrait::before { /* el disco asoma detrás de la foto, como en las carátulas del catálogo */
+    content: ""; position: absolute; z-index: -1; width: 92%; aspect-ratio: 1; border-radius: 50%; right: -16%; top: 50%; translate: 0 -50%;
+    background: radial-gradient(circle, var(--orange) 0 15%, #0b0b0b 15.5% 16.5%, transparent 17%), repeating-radial-gradient(circle, #151515 0 1px, #222 1px 3px);
+  }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+  .portrait figcaption { position: absolute; left: 0; bottom: 0; background: var(--black); color: var(--white); padding: 10px 14px; }
+  .hero-foot { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: end; border-top: 3px solid var(--white); padding-top: clamp(16px, 1.2vw, 24px); }
+  .hero-foot .role { font-weight: 800; font-variation-settings: "wdth" 80; text-transform: uppercase; font-size: clamp(20px, 1.7vw, 34px); line-height: 1.05; }
+  .hero-foot .role .light { font-weight: 300; }
+  .manifesto { font-size: clamp(18px, 1.35vw, 27px); line-height: 1.3; font-variation-settings: "wdth" 88; max-width: 40ch; }
+  .manifesto b { font-weight: 800; }
+
+  /* ---------- 2. Norte creativo ---------- */
+  .north { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(24px, 4vw, 80px); padding: 0 var(--pad) clamp(64px, 7.4vw, 160px); }
+  .north article { border-top: 3px solid var(--black); padding-top: clamp(18px, 1.4vw, 28px); display: grid; gap: clamp(16px, 1.4vw, 28px); align-content: start; }
+  .north h3 { font-size: clamp(48px, 5.6vw, 116px); }
+  .north .stmt { font-size: clamp(22px, 2vw, 40px); line-height: 1.18; font-variation-settings: "wdth" 88; font-weight: 400; max-width: 26ch; }
+  .north .stmt b { font-weight: 800; }
+  .north dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 20px; border-top: 1px solid var(--line); }
+  .north dl div { padding-top: 14px; }
+  .north dt { font-weight: 800; font-variation-settings: "wdth" 80; text-transform: uppercase; font-size: clamp(14px, 0.85vw, 17px); }
+  .north dd { font-size: clamp(15px, 0.95vw, 19px); color: #333; }
+
+  /* ---------- 3. Showreel ---------- */
+  .reel { background: var(--black); color: var(--white); padding-bottom: clamp(64px, 7.4vw, 160px); }
+  .reel .head p { color: var(--ink2); }
+  .player { margin: 0 var(--pad); position: relative; aspect-ratio: 1920 / 1080; background: #000; overflow: hidden; display: block; }
+  .player img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .82; transition: opacity .6s var(--ease), transform 1.2s var(--ease); }
+  .player:hover img, .player:focus-visible img { opacity: 1; transform: scale(1.02); }
+  .player .title { position: absolute; left: clamp(20px, 2.4vw, 48px); bottom: clamp(20px, 2.4vw, 48px); font-size: clamp(40px, 6.4vw, 132px); color: var(--white); }
+  .player .title span { display: block; }
+  .player .play { position: absolute; top: 50%; left: 50%; translate: -50% -50%; width: clamp(88px, 8vw, 168px); aspect-ratio: 1; border-radius: 50%; background: var(--orange); display: grid; place-items: center; transition: transform .45s var(--ease), background .3s var(--ease); }
+  .player .play svg { width: 34%; height: 34%; margin-left: 8%; fill: var(--black); }
+  .player:hover .play { transform: scale(1.08); }
+  .player .meta { position: absolute; top: clamp(16px, 1.6vw, 32px); left: clamp(20px, 2.4vw, 48px); right: clamp(20px, 2.4vw, 48px); display: flex; justify-content: space-between; color: var(--white); }
+  .player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .reel-foot { margin: 18px var(--pad) 0; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--ink2); }
+
+  /* ---------- 4. Competencias y evidencias ---------- */
+  .skills { padding-bottom: clamp(64px, 7.4vw, 160px); }
+  .areas { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 var(--pad) clamp(28px, 2vw, 40px); }
+  .areas li { list-style: none; border: 2px solid var(--black); padding: 8px 14px; font-weight: 800; font-variation-settings: "wdth" 80; text-transform: uppercase; font-size: clamp(13px, 0.8vw, 16px); }
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(36px, 3.2vw, 64px) clamp(20px, 2vw, 40px); padding: 0 var(--pad); }
+  .still { display: grid; gap: 12px; align-content: start; }
+  .still .frame { aspect-ratio: 16 / 10; overflow: hidden; background: var(--black); position: relative; }
+  .still .frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+  .still:hover .frame img { transform: scale(1.04); }
+  .still .area { position: absolute; top: 0; left: 0; background: var(--white); color: var(--black); padding: 8px 12px; }
+  .still h3 { font-size: clamp(30px, 2.6vw, 54px); }
+  .still .credit { font-weight: 800; font-variation-settings: "wdth" 80; text-transform: uppercase; font-size: clamp(14px, 0.85vw, 17px); }
+  .still p { font-size: clamp(15px, 0.95vw, 19px); color: #333; max-width: 46ch; }
+  .still small { font-size: clamp(12px, 0.72vw, 14px); color: var(--grey); }
+  .frame.type { display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(16px, 1.6vw, 32px); color: var(--white); }
+  .still .frame.type .x { color: inherit; max-width: none; font-size: clamp(38px, 3.6vw, 76px); }
+  .frame.type .x span { display: block; }
+  .frame.amber { background: var(--black); color: var(--amber); }
+
+  /* ---------- 5. Meta SMART ---------- */
+  .smart { background: var(--yellow); padding-bottom: clamp(64px, 7.4vw, 160px); }
+  .smart .goal { padding: 0 var(--pad); font-size: clamp(24px, 2.4vw, 48px); line-height: 1.12; font-variation-settings: "wdth" 88; max-width: 34ch; }
+  .smart .goal b { font-weight: 900; }
+  .figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 clamp(20px, 2vw, 40px); padding: clamp(40px, 3.4vw, 68px) var(--pad) clamp(28px, 2vw, 40px); }
+  .figures div { border-top: 3px solid var(--black); padding-top: 14px; }
+  .figures .n { font-size: clamp(64px, 7.4vw, 152px); display: block; }
+  .figures .u { font-weight: 800; font-variation-settings: "wdth" 80; text-transform: uppercase; font-size: clamp(15px, 1vw, 20px); }
+  .letters { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 clamp(16px, 1.6vw, 32px); padding: 0 var(--pad); }
+  .letters div { border-top: 1px solid rgba(17,17,17,.35); padding-top: 12px; }
+  .letters b { display: block; font-weight: 900; font-variation-settings: "wdth" 125; font-size: clamp(32px, 2.6vw, 54px); line-height: 1; }
+  .letters em { font-style: normal; font-weight: 800; font-variation-settings: "wdth" 80; text-transform: uppercase; font-size: clamp(13px, 0.8vw, 16px); display: block; margin: 8px 0 4px; }
+  .letters p { font-size: clamp(14px, 0.9vw, 18px); }
+
+  /* ---------- 6. Plan de acción: la tira de película ---------- */
+  .road { background: var(--black); color: var(--white); padding-bottom: clamp(64px, 7.4vw, 160px); }
+  .road .head p { color: var(--ink2); }
+  .strip { margin: 0 var(--pad); background: #0a0a0a; padding: clamp(28px, 2.4vw, 48px) 0; position: relative; }
+  .strip::before, .strip::after { /* perforaciones del negativo */
+    content: ""; position: absolute; left: 0; right: 0; height: clamp(10px, 0.8vw, 16px);
+    background: repeating-linear-gradient(90deg, transparent 0 clamp(14px, 1.2vw, 24px), #2b2b2b clamp(14px, 1.2vw, 24px) clamp(30px, 2.4vw, 48px));
+  }
+  .strip::before { top: clamp(8px, 0.6vw, 14px); }
+  .strip::after { bottom: clamp(8px, 0.6vw, 14px); }
+  .strip ol { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 1vw, 20px); padding: 0 clamp(14px, 1.2vw, 24px); counter-reset: f; }
+  .strip li { counter-increment: f; background: #1c1c1c; padding: clamp(18px, 1.6vw, 32px); display: grid; gap: 10px; align-content: start; min-height: clamp(260px, 17vw, 340px); border-top: 6px solid var(--c, var(--orange)); }
+  .strip li::before { content: "0" counter(f); font-weight: 300; font-variation-settings: "wdth" 70; font-size: clamp(18px, 1.2vw, 24px); color: #9A9A9A; }
+  .strip h3 { font-size: clamp(30px, 2.5vw, 52px); }
+  .strip .when { font-weight: 800; font-variation-settings: "wdth" 70; text-transform: uppercase; color: var(--c, var(--orange)); font-size: clamp(15px, 0.95vw, 19px); }
+  .strip p { font-size: clamp(15px, 0.95vw, 19px); color: var(--ink2); }
+  .road-foot { margin: 18px var(--pad) 0; color: var(--ink2); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  /* ---------- 7. Cierre y contacto ---------- */
+  .close { background: var(--orange); color: var(--black); padding: clamp(64px, 7.4vw, 160px) var(--pad) var(--pad); display: grid; gap: clamp(40px, 3.6vw, 72px); min-height: min(57.6vw, 1152px); align-content: space-between; }
+  .close blockquote { font-size: clamp(52px, 8.2vw, 168px); }
+  .close blockquote span { display: block; }
+  .links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 3px solid var(--black); }
+  .links a { display: grid; gap: 10px; padding: 22px 0; border-bottom: 1px solid rgba(17,17,17,.4); min-height: 44px; transition: background .3s var(--ease), color .3s var(--ease), padding .3s var(--ease); }
+  .links a:hover { background: var(--black); color: var(--white); padding-left: 16px; }
+  .links svg { width: clamp(26px, 1.8vw, 36px); height: clamp(26px, 1.8vw, 36px); }
+  .links .k { font-weight: 800; font-variation-settings: "wdth" 80; text-transform: uppercase; font-size: clamp(15px, 0.95vw, 19px); }
+  .links .v { font-size: clamp(15px, 0.95vw, 19px); }
+  footer { background: var(--black); color: var(--white); padding: 22px var(--pad); display: flex; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; font-size: 14px; }
+  footer a { text-decoration: underline; text-underline-offset: 4px; }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+  @media (max-width: 1000px) {
+    .hero-grid, .north { grid-template-columns: 1fr; }
+    .north { gap: 56px; }
+    .portrait { max-width: 520px; }
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 20px; }
+    .letters { grid-template-columns: 1fr; gap: 16px; }
+    .strip ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .links { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; }
+  }
+  @media (max-width: 640px) {
+    .head h2 { font-size: 14.5vw; }
+    .portrait::before { display: none; }
+    .hero-foot { grid-template-columns: 1fr; }
+    .grid, .strip ol { grid-template-columns: 1fr; }
+    .north dl { grid-template-columns: 1fr; }
+    .player .title { display: none; }
+    .links { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20.5 11.6a8.6 8.6 0 0 1-12.7 7.6L3.5 20.5l1.4-4.1a8.6 8.6 0 1 1 15.6-4.8z"/><path fill="currentColor" d="M9 7.6c.3-.1.6 0 .7.3l.8 1.9c.1.3 0 .5-.2.7l-.6.7c.6 1.2 1.6 2.2 2.8 2.8l.7-.6c.2-.2.5-.3.7-.2l1.9.8c.3.1.4.4.3.7-.3 1.1-1.3 1.8-2.4 1.6-3-.6-5.3-2.9-5.9-5.9-.2-1.1.5-2.1 1.2-2.8z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></g></symbol>
+  <symbol id="i-web" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></g></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3.5v17l14-8.5z"/></symbol>
+</svg>
+
+<div class="page">
+<main>
+
+<!-- 1 · HEADER E IDENTIDAD -->
+<header class="hero" id="top">
+  <div class="hero-top tag"><span class="name">Federico Rodríguez Márquez</span><span>FRM 00 <span>/ Portafolio profesional · UCAB · 2026</span></span></div>
+  <div class="hero-grid">
+    <h1 class="x" aria-label="Lo que se ve y lo que suena son la misma decisión.">
+      <span class="l1 cond">Lo que se ve</span>
+      <span class="l2 cond light">y lo que suena</span>
+      <span class="l3 wide">son la misma</span>
+      <span class="l4 cond">decisión.</span>
+    </h1>
+    <figure class="portrait">
+      <img class="bw" src="img/federico.jpg" alt="Retrato de Federico Rodríguez Márquez" width="1024" height="1166">
+      <figcaption class="tag">Caracas <span>/ ES · EN</span></figcaption>
+    </figure>
+  </div>
+  <div class="hero-foot">
+    <p class="manifesto">Vengo del jazz y de la curaduría: aprendí a diseñar cómo suena un lugar antes de aprender a encuadrarlo. Hoy escribo, dirijo y fotografío historias con ese mismo oído. <b>La imagen y el sonido no se reparten el trabajo: cuentan la misma idea.</b></p>
+    <p class="role">Realizador audiovisual<br><span class="light">y diseñador de identidad sonora</span></p>
+  </div>
+</header>
+
+<!-- 2 · NORTE CREATIVO -->
+<section id="norte" aria-labelledby="no-t">
+  <div class="head">
+    <h2 id="no-t" class="x cond">Norte creativo</h2>
+    <p>Hacia dónde apunta el catálogo: qué hago hoy y dónde quiero estar en cinco años.</p>
+  </div>
+  <div class="north">
+    <article>
+      <h3 class="x"><span class="cond">Misión</span> <span class="light cond">/ hoy</span></h3>
+      <p class="stmt"><b>Diseño cómo se ven y cómo suenan</b> las historias, las marcas y los espacios: del guion y la dirección de fotografía a la identidad sonora, para que cada pieza transmita una sola idea.</p>
+      <dl>
+        <div><dt>Qué</dt><dd>Guion, dirección, fotografía e identidad sonora.</dd></div>
+        <div><dt>Cómo</dt><dd>Con referencias de cine de autor y oído de curador.</dd></div>
+        <div><dt>Para quién</dt><dd>Productoras, marcas y espacios en Caracas.</dd></div>
+      </dl>
+    </article>
+    <article>
+      <h3 class="x"><span class="cond">Visión</span> <span class="light cond">/ 2030</span></h3>
+      <p class="stmt">En cinco años, <b>haber dirigido mi primer largometraje,</b> <i>El Prado Negro</i>, y liderar un estudio en Caracas que firme la identidad audiovisual y sonora de marcas latinoamericanas.</p>
+      <dl>
+        <div><dt>Cine</dt><dd>Largometraje de autor en circuito de festivales.</dd></div>
+        <div><dt>Estudio</dt><dd>Imagen y sonido de marca bajo un mismo criterio.</dd></div>
+        <div><dt>Alcance</dt><dd>Clientes en Venezuela y la región.</dd></div>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<!-- 3 · MUESTRA AUDIOVISUAL -->
+<section class="reel" id="reel" aria-labelledby="re-t">
+  <div class="head">
+    <h2 id="re-t" class="x cond">Showreel</h2>
+    <p>La muestra que resume el catálogo: noventa segundos de imagen y sonido.</p>
+  </div>
+  <!-- Para activar el reel, pega el enlace de YouTube o Vimeo en data-video (ej. https://www.youtube.com/embed/ID). -->
+  <a class="player" id="player" href="#reel" data-video="" aria-label="Reproducir showreel 2026">
+    <img class="bw" src="img/ref-rublev.jpg" alt="" width="1200" height="675">
+    <span class="meta tag"><span>Showreel 2026</span><span>1920 × 1080 <span>/ 90 s</span></span></span>
+    <span class="title x"><span class="cond">Reel</span><span class="wide light">2026</span></span>
+    <span class="play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+  </a>
+  <div class="reel-foot tag"><span>Vimeo / YouTube</span><span>Thumbnail: fotograma de referencia de <i>Andrei Rublev</i> (Tarkovsky, 1966)</span></div>
+</section>
+
+<!-- 4 · COMPETENCIAS Y EVIDENCIAS -->
+<section class="skills" id="evidencias" aria-labelledby="ev-t">
+  <div class="head">
+    <h2 id="ev-t" class="x cond">Competencias</h2>
+    <p>Cada área, con el proyecto que la demuestra. Los fotogramas son las referencias visuales de cada propuesta.</p>
+  </div>
+  <ul class="areas" aria-label="Áreas de dominio">
+    <li>Guion / narrativa visual</li><li>Dirección</li><li>Dirección de fotografía</li><li>Iluminación</li><li>Idiomas</li><li>Identidad sonora</li>
+  </ul>
+  <div class="grid">
+    <article class="still">
+      <div class="frame"><img class="bw" src="img/ref-pather.jpg" alt="Fotograma de Pather Panchali, de Satyajit Ray, referencia de El Prado Negro" loading="lazy"><span class="area tag">Guion</span></div>
+      <h3 class="x cond">El Prado Negro</h3>
+      <p class="credit">Largometraje · guion propio · en desarrollo</p>
+      <p>Drama poético sobre la fe frente a la sequía del llano venezolano. Escribí el guion y la propuesta de fotografía.</p>
+      <small>Referencia: <i>Pather Panchali</i>, Satyajit Ray, 1955.</small>
+    </article>
+    <article class="still">
+      <div class="frame"><img class="bw" src="img/ref-stalker.jpg" alt="Fotograma de Stalker, de Andrei Tarkovsky, referencia de El Prado Negro" loading="lazy"><span class="area tag">Dirección</span></div>
+      <h3 class="x cond">El Prado Negro</h3>
+      <p class="credit">Codirección con A. Pietri</p>
+      <p>Una puesta en escena que habita el tiempo: planos largos y el silencio como material dramático.</p>
+      <small>Referencia: <i>Stalker</i>, Andrei Tarkovsky, 1979.</small>
+    </article>
+    <article class="still">
+      <div class="frame"><img class="bw" src="img/ref-persona.png" alt="Fotograma de Persona, de Ingmar Bergman, referencia de Para Ellie" loading="lazy"><span class="area tag">Fotografía</span></div>
+      <h3 class="x cond">Para Ellie</h3>
+      <p class="credit">Director de fotografía · dir. Mauricio Colazingari</p>
+      <p>Propuesta visual sobre el aislamiento: luz natural, composición clásica y una cámara que observa con paciencia.</p>
+      <small>Referencia: <i>Persona</i>, Ingmar Bergman, 1966.</small>
+    </article>
+    <article class="still">
+      <div class="frame"><img class="bw" src="img/ref-barry.jpg" alt="Fotograma de Barry Lyndon, de Stanley Kubrick, referencia de Para Ellie" loading="lazy"><span class="area tag">Iluminación</span></div>
+      <h3 class="x cond">Para Ellie</h3>
+      <p class="credit">Director de fotografía · paleta y plan de luz</p>
+      <p>Luz natural, composición clásica y una paleta fría (azul gélido, gris cemento) para traducir el aislamiento en imagen.</p>
+      <small>Referencia: <i>Barry Lyndon</i>, Stanley Kubrick, 1975.</small>
+    </article>
+    <article class="still">
+      <div class="frame type"><span class="area tag">Idiomas</span><p class="x"><span class="cond">Inglés</span><span class="wide light">C1</span></p></div>
+      <h3 class="x cond">Inglés C1</h3>
+      <p class="credit">Certificación TOEFL</p>
+      <p>Escribo, presento y trabajo proyectos audiovisuales en español y en inglés.</p>
+    </article>
+    <article class="still">
+      <div class="frame type amber"><span class="area tag">Sonido</span><p class="x"><span class="light cond">Ron</span><span class="wide">Santa</span><span class="cond">Teresa</span></p></div>
+      <h3 class="x cond">Identidad sonora</h3>
+      <p class="credit">Santa Teresa · SW//TCH Gym · Koga Sounds</p>
+      <p>Diseño la música de marcas y espacios en Caracas: más de 300 playlists curadas desde 2019.</p>
+    </article>
+  </div>
+</section>
+
+<!-- 5 · META SMART -->
+<section class="smart" id="meta" aria-labelledby="me-t">
+  <div class="head">
+    <h2 id="me-t" class="x cond">Meta SMART</h2>
+    <p>Un objetivo concreto para el portafolio: que cada proyecto se pueda ver, leer y acreditar.</p>
+  </div>
+  <p class="goal">Publicar <b>mi portafolio audiovisual completo</b> con <b>6 proyectos documentados</b>, cada uno con ficha técnica, stills y créditos, dedicándole <b>5 horas a la semana</b>, antes del <b>31 de enero de 2027</b>.</p>
+  <div class="figures">
+    <div><span class="n x wide">6</span><span class="u">proyectos documentados</span></div>
+    <div><span class="n x wide">3</span><span class="u">piezas por proyecto</span></div>
+    <div><span class="n x wide">5 h</span><span class="u">por semana</span></div>
+    <div><span class="n x cond">31.01</span><span class="u">2027, fecha límite</span></div>
+  </div>
+  <div class="letters">
+    <div><b>S</b><em>Específico</em><p>Un portafolio con 6 proyectos, no «mejorar mi marca».</p></div>
+    <div><b>M</b><em>Medible</em><p>6 proyectos × ficha técnica, stills y créditos.</p></div>
+    <div><b>A</b><em>Alcanzable</em><p>Los proyectos y su material ya existen.</p></div>
+    <div><b>R</b><em>Relevante</em><p>Es lo primero que revisa una productora o un cliente.</p></div>
+    <div><b>T</b><em>Temporal</em><p>Cuatro etapas entre noviembre y enero.</p></div>
+  </div>
+</section>
+
+<!-- 6 · PLAN DE ACCIÓN -->
+<section class="road" id="plan" aria-labelledby="pl-t">
+  <div class="head">
+    <h2 id="pl-t" class="x cond">Plan de acción</h2>
+    <p>El rodaje de la meta, cuadro a cuadro: cuatro etapas y sus plazos.</p>
+  </div>
+  <div class="strip">
+    <ol>
+      <li style="--c: var(--orange)"><h3 class="x cond">Auditoría</h3><span class="when">Nov 2026</span><p>Revisar todo lo filmado, fotografiado y diseñado. Elegir los 6 proyectos que entran al portafolio.</p></li>
+      <li style="--c: var(--yellow)"><h3 class="x cond">Estructura y fichas</h3><span class="when">Dic 2026</span><p>Escribir la ficha técnica y los créditos de cada proyecto y definir el orden del portafolio.</p></li>
+      <li style="--c: var(--amber)"><h3 class="x cond">Postproducción</h3><span class="when">Ene 2027</span><p>Seleccionar y tratar los stills, preparar los fragmentos de video y montar cada proyecto en la web.</p></li>
+      <li style="--c: #8FA6FF"><h3 class="x cond">Lanzamiento</h3><span class="when">31 ene 2027</span><p>Publicar el portafolio, compartirlo en Vimeo y Behance y enviarlo a productoras y clientes.</p></li>
+    </ol>
+  </div>
+  <div class="road-foot tag"><span>Inicio: 2 nov 2026</span><span>Duración: 13 semanas <span>/ 5 h semanales</span></span></div>
+</section>
+
+<!-- 7 · CIERRE Y CONTACTO -->
+<section class="close" id="contacto" aria-labelledby="ct-t">
+  <h2 id="ct-t" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Contacto</h2>
+  <blockquote class="x" aria-label="Si no suena bien, no se ve bien."><span class="cond">Si no suena</span><span class="cond light">bien,</span><span class="wide">no se ve</span><span class="cond">bien.</span></blockquote>
+  <nav class="links" aria-label="Contacto y redes">
+    <a href="https://instagram.com/musicari0" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg><span class="k">Instagram</span><span class="v">@musicari0</span></a>
+    <a href="https://wa.me/584129637780" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span class="k">WhatsApp</span><span class="v">+58 412 963 7780</span></a>
+    <a href="mailto:fjrodriguez.20@est.ucab.edu.ve"><svg aria-hidden="true"><use href="#i-mail"/></svg><span class="k">Correo</span><span class="v">fjrodriguez.20@est.ucab.edu.ve</span></a>
+    <a href="https://musicari0.vercel.app" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-web"/></svg><span class="k">Portafolio de sonido</span><span class="v">musicari0.vercel.app</span></a>
+  </nav>
+</section>
+</main>
+
+<footer>
+  <span>© 2026 Federico Rodríguez Márquez · Portafolio Profesional, UCAB · Prof. Jesús Rivas</span>
+  <span>Fotogramas de referencia: Ray, Tarkovsky, Bergman y Kubrick, usados como referencia visual.</span>
+</footer>
+</div>
+
+<script>
+// Si data-video tiene un enlace embebible, el clic reemplaza la portada por el reproductor.
+(function () {
+  var p = document.getElementById('player'); if (!p) return;
+  var url = p.getAttribute('data-video');
+  if (!url) { p.removeAttribute('href'); p.setAttribute('role', 'img'); p.setAttribute('aria-label', 'Espacio del showreel 2026'); return; }
+  p.addEventListener('click', function (e) {
+    e.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = url + (url.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1';
+    f.allow = 'autoplay; fullscreen; picture-in-picture'; f.allowFullscreen = true; f.title = 'Showreel 2026';
+    p.innerHTML = ''; p.appendChild(f);
+  }, { once: true });
+})();
+</script>
+</body>
+</html>
